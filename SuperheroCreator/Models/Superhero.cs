@@ -11,7 +11,8 @@ namespace SuperheroCreator.Models
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public string AlterEgo { get; set; }
+        public string AlterEgoFirstName { get; set; }
+        public string AlterEgoLastName { get; set; }
         public string Ability { get; set; }
         public string SecondAbility { get; set; }
         public string Catchphrase { get; set; }
