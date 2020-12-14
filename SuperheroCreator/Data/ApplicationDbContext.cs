@@ -15,5 +15,6 @@ namespace SuperheroCreator.Data
         }
 
         public DbSet<Superhero> Superheroes { get; set; }
+        public DbSet<AlterEgo> AlterEgos { get; set; }
     }
 }

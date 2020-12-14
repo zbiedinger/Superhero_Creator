@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SuperheroCreator.Data;
 
 namespace SuperheroCreator.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201211205822_changed_key")]
+    partial class changed_key
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -248,7 +250,7 @@ namespace SuperheroCreator.Data.Migrations
 
                     b.HasIndex("SuperheroId");
 
-                    b.ToTable("AlterEgos");
+                    b.ToTable("AlterRegos");
                 });
 
             modelBuilder.Entity("SuperheroCreator.Models.Superhero", b =>

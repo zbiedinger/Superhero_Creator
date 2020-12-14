@@ -11,14 +11,14 @@ namespace SuperheroCreator.Models
     {
         [Key]
         public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Job { get; set; }
         public string Home { get; set; }
         public string RelationshipStatus { get; set; }
 
         [ForeignKey("Superhero")]
         public int SuperheroId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
         public Superhero Superhero { get; set; }
     }
 }

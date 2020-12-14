@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SuperheroCreator.Data;
 
 namespace SuperheroCreator.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201211205532_changed_keys")]
+    partial class changed_keys
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -219,38 +221,6 @@ namespace SuperheroCreator.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("SuperheroCreator.Models.AlterEgo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Home")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Job")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RelationshipStatus")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SuperheroId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SuperheroId");
-
-                    b.ToTable("AlterEgos");
-                });
-
             modelBuilder.Entity("SuperheroCreator.Models.Superhero", b =>
                 {
                     b.Property<int>("Id")
@@ -328,15 +298,6 @@ namespace SuperheroCreator.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SuperheroCreator.Models.AlterEgo", b =>
-                {
-                    b.HasOne("SuperheroCreator.Models.Superhero", "Superhero")
-                        .WithMany()
-                        .HasForeignKey("SuperheroId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
