@@ -2,6 +2,26 @@
 @{
     ViewData["Title"] = "Index";
 }
+@model IEnumerable<SuperheroCreator.Models.Superhero>
 
-<h1>Index</h1>
+<h1>All Superheros</h1>
 
+<tbody>
+    @foreach (var super in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => super.Name)
+            </td>
+            <td>
+                @super.Id
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@super.Id">Edit</a>
+                <a asp-action="Details" asp-route-id="@super.Id">Details</a>
+                <a asp-action="Delete" asp-route-id="@super.Id">Delete</a>
+            </td>
+        </tr>
+    }
+
+</tbody>
