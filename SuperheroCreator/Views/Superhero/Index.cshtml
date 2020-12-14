@@ -9,19 +9,47 @@
 <tbody>
     @foreach (var super in Model)
     {
-        <tr>
+        @*<tr>
             <td>
-                @Html.DisplayFor(modelItem => super.Name)
+                @Html.DisplayFor(modelItem => super.Id)
             </td>
             <td>
-                @super.Id
+                @Html.DisplayFor(modelItem => super.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@super.Id">Edit</a>
                 <a asp-action="Details" asp-route-id="@super.Id">Details</a>
                 <a asp-action="Delete" asp-route-id="@super.Id">Delete</a>
             </td>
-        </tr>
-    }
+        </tr>*@
 
+        <div>
+            <h4>Superhero</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Id)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(modelItem => super.Id)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(modelItem => super.Name)
+                </dd>
+                <dd class="col-sm-2">
+                    <a asp-action="Details" asp-route-id="@super.Id">Details</a>
+                </dd>
+                <dt class="col-sm-2">
+                    <a asp-action="Edit" asp-route-id="@super.Id">Edit</a>
+                </dt>
+                <dd class="col-sm-2">
+                    <a asp-action="Delete" asp-route-id="@super.Id">Delete</a>
+                </dd>
+
+            </dl>
+        </div>
+    }
 </tbody>

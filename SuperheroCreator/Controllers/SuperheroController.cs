@@ -27,8 +27,8 @@ namespace SuperheroCreator.Controllers
         // GET: SuperheroController/Details/5
         public ActionResult Details(int id)
         {
-            var person = _context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
-            return View(person);
+            var herodetails = _context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
+            return View(herodetails);
         }
 
         // GET: SuperheroController/Create
@@ -78,7 +78,8 @@ namespace SuperheroCreator.Controllers
         // GET: SuperheroController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var person = _context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
+            return View(person);
         }
 
         // POST: SuperheroController/Delete/5
@@ -88,7 +89,8 @@ namespace SuperheroCreator.Controllers
         {
             try
             {
-                _context.Superheroes.Remove(superhero);
+                var deletedhero = _context.Superheroes.Where(s => s == superhero).FirstOrDefault();
+                _context.Superheroes.Remove(deletedhero);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
